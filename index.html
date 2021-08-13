@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
         <header>
@@ -23,49 +24,57 @@
                   <section id="recentQueries"></section>
             </section>
             <section class="row col-9 m-2">
-                <div class="jumbotron w-100 bg-white border border-dark">
+                <div class="jumbotron w-100 bg-white border border-dark p-2">
                     <div class="container">
-                      <h1 class="display-4" id="cityName">Dallas</h1>
-                      
+                      <h1 class="display-4" id="cityName">Dallas<span id="currentDate"></span></h1>
+                      <p>Temp:<span id= "temp"></span></p>
+                      <p>Wind: <span id= "wind"></span></p>
+                      <p>Humidity: <span id= "humid"></span></p>
+                      <p>UV Index:<span id= "uVI"></span></p>
                     </div>
                   </div>
                 </div>
                 <h2 class = "my-3">5-Day Forecast</h2>
-                <section class ="row">
+                <section class ="row w-100 flex-nowrap justify content-between">
                   <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <h5 class="card-title">Card title</h5>
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <img src="..." class="card-img-top" alt="...">
+                      <p>Temp:<span class= "temp"></span></p>
+                      <p>Wind: <span class= "wind"></span></p>
+                      <p>Humidity: <span class= "humid"></span></p>
                     </div>
-                  </div><div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                  </div><div class="card mx-2" style="width: 18rem;">
+                    <h5 class="card-title">Card title</h5>
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <img src="..." class="card-img-top" alt="...">
+                      <p>Temp:<span class= "temp"></span></p>
+                      <p>Wind: <span class= "wind"></span></p>
+                      <p>Humidity: <span class= "humid"></span></p>
                     </div>
-                  </div><div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                  </div><div class="card mx-2" style="width: 18rem;">
+                    <h5 class="card-title">Card title</h5>
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <img src="..." class="card-img-top" alt="...">
+                      <p>Temp:<span class= "temp"></span></p>
+                      <p>Wind: <span class= "wind"></span></p>
+                      <p>Humidity: <span class= "humid"></span></p>
                     </div>
-                  </div><div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                  </div><div class="card mx-2" style="width: 18rem;">
+                    <h5 class="card-title">Card title</h5>
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <img src="..." class="card-img-top" alt="...">
+                      <p>Temp:<span class= "temp"></span></p>
+                      <p>Wind: <span class= "wind"></span></p>
+                      <p>Humidity: <span class= "humid"></span></p>
                     </div>
-                  </div><div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                  </div><div class="card mx-2" style="width: 18rem;">
+                    <h5 class="card-title">Card title</h5>
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <img src="..." class="card-img-top" alt="...">
+                      <p>Temp:<span class= "temp"></span></p>
+                      <p>Wind: <span class= "wind"></span></p>
+                      <p>Humidity: <span class= "humid"></span></p>
                     </div>
                   </div>
                   </section>

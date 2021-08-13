@@ -2,3 +2,4 @@
     background-color: rgb(24, 42, 56); color: rgb(255, 255, 255);
     
 }
+.invalidSearch{    font-size: .7rem;color: rgb(255, 1, 1); visibility:hidden;}

@@ -5,8 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+        <header>
+            <h1 class="bg-primary text-white text-center p-2">Weather Dashboard</h1>
+        </header>
+        <main class="row">
+            <section class="row col-2 mx-2">
+                <form class="w-100">
+                    <div class="form-group">
+                      <label for="citySearch">Search for a City:</label>
+                      <input type="text" class="form-control" id="criteria" aria-describedby="criteria" placeholder="Dallas">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                  </form>
+                  <section id="recentQueries"></section>
+            </section>
+            <section class="row col-9 m-2">
+                <div class="jumbotron w-100 bg-white border border-dark">
+                    <div class="container">
+                      <h1 class="display-4" id="cityName">Dallas</h1>
+                      
+                    </div>
+                  </div>
+                </div>
+                <h2 class = "my-3">5-Day Forecast</h2>
+                <section class ="row">
+                  <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div><div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div><div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div><div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div><div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                  </section>
+            </section>
+
+        </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

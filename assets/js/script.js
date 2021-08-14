@@ -101,6 +101,14 @@ function setValues() {
         let wind = weatherArray.daily[i].wind_speed;
         let precip = weatherArray.daily[i].weather[0].main;
         let temperature = weatherArray.daily[i].temp.day;
+        let h = weatherArray.daily[0].humidity;
+        let w = weatherArray.daily[0].wind_speed;
+        let t = weatherArray.daily[0].temp.day;
+        let u = weatherArray.daily[0].uvi;
+        tempHTML.innerHTML = t;
+        windHTML.innerHTML = w;
+        humidHTML.innerHTML = h;
+        uVIHTML.innerHTML = u;
         //  console.log("Humidity: " + humid);
         //  console.log(wind);
         //  console.log(speed);
@@ -114,11 +122,6 @@ function setValues() {
         cards.children[i-1].children[1].children[3].children[0].innerHTML = ` ${humid} %`;
         // cards.children[i+1].children[1].children[1].children[0].innerHTML = 
     }
-    let h = weatherArray.daily[0].humidity;
-    let w = weatherArray.daily[0].wind_speed;
-    let t = weatherArray.daily[0].temp.day;
-    let u = weatherArray.daily[0].uvi;
-
 
 }
 

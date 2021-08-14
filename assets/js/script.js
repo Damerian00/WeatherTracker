@@ -15,26 +15,39 @@ let sunny = "assets/img/day_clear.png";
 let cloudy = "assets/img/cloudy.png";
 let rain = "assets/img/rain.png";
 let today = moment();
-let searchResults;
+let searchResults =[];
 let invalidS = document.querySelector('.invalidSearch');
 let visi = invalidS.getAttribute("data-visibility");
+let rQ = document.querySelector('#recentQueries');
 
-initDays();
 init();
+initDays();
 
 
 function init (){
-    // if (localStorage.getItem("toDo") != null) {
-    //     storageArray= JSON.parse(localStorage.getItem("toDo"));
+    if (localStorage.getItem("City") != null) {
+         searchResults = JSON.parse(localStorage.getItem("City"));
         
-    // }
-  
-    //     for (i = 0; i < 9; i++) {
-    //         let s = JSON.parse(localStorage.getItem("searchResults"));
-    //         let theMessage = storageArray[i].message;
-    //         container.children[i].children[1].value = theMessage;
-    //     }
+     
+        // // if (rQ.children[].length != null){
+        // //     for (let i = 0; i < rQ.children().length; i++) {
+        // //         rQ.children[0].remove();
+                
+        // //     }
 
+        // }
+
+         for (i = 0; i < searchResults.length && i < 8; i++) {
+             JSON.parse(localStorage.getItem("searchResults"));
+             let theResult = searchResults[i];
+               let p = document.createElement("p");
+               p.classList = "p-2 bg-secondary text-light text-center";
+               p.innerHTML = theResult;
+               rQ.appendChild(p);
+             
+            
+         } 
+        }
 }
 function initDays(){
     let t = today.format('MMMM Do YYYY');
@@ -51,24 +64,7 @@ function initDays(){
     cards.children[4].children[0].innerHTML = d5;
 
 }
-/* dt_txt: "2021-08-13 21:00:00"
-main: {temp: 308.49, feels_like: 312.71, temp_min: 308.49, temp_max: 309.1, pressure: 1016, …}
-main:
-    feels_like: 312.71
-    grnd_level: 994
-    humidity: 45
-    pressure: 1016
-    sea_level: 1016
-    temp: 308.49
-    temp_kf: -0.61
-    temp_max: 309.1
-    temp_min: 308.49
-wind: {speed: 2.59, deg: 175, gust: 3.1}
-var today = moment();
-$("#1a").text(today.format("MMM Do, YYYY"));
-var gradDate =today.format("MMM Do, YYYY");
-$("#1a").text(gradDate);
-*/
+
 
 
 let formSubmitHandler = function (event) {
@@ -76,18 +72,9 @@ let formSubmitHandler = function (event) {
     let qCity = document.querySelector('#criteria');
     qCity = qCity.value;
     cINput = qCity;
+    searchResults.push(cINput);
     queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${qCity}&appid=${apiKey}&units=imperial`;
-    // fetch(queryUrl)
-    // .then(headers => headers.json())
-    // .then(weatherData => {
-    //     console.log(weatherData)
-    //     weatherArray = weatherData;
-    //     cINput = qCity;
-    //     console.log(weatherArray);
-    /*.city.cord.lat
-    .city.cord.lon
-    */
-    fetch(queryUrl)
+      fetch(queryUrl)
         .then(function (response) {
             if (response.ok) {
                
@@ -103,7 +90,6 @@ let formSubmitHandler = function (event) {
                                 weatherData.json()
                                 .then(weatherData => {
                                    weatherArray = weatherData;
-                                   console.log(visi);
                                    if (visi === "hidden"){
                                      invalidS.setAttribute("data-visibility" , "hidden");
                                      invalidS.style.visibility = "hidden";
@@ -113,7 +99,6 @@ let formSubmitHandler = function (event) {
                     )    }
                 })   
                     }else{
-                        console.log("I fired");
                         
                         if (visi === "hidden"){
                             invalidS.setAttribute("data-visibility" , "visible");
@@ -154,14 +139,6 @@ function setValues() {
         } else{
             uVIHTML.style.backgroundColor = "red";
         }
-        //  console.log("Humidity: " + humid);
-        //  console.log(wind);
-        //  console.log(speed);
-        //  console.log(deg);
-        //  console.log(gust);
-        //  console.log(precip);
-        //  console.log("Temp: " + temperature);
-        // cards.children[i].children[0].innerHTML = datey;
         cards.children[i-1].children[1].children[1].children[0].innerHTML = ` ${temperature}&#8457`;
         cards.children[i-1].children[1].children[2].children[0].innerHTML = ` ${wind}MPH`;
         cards.children[i-1].children[1].children[3].children[0].innerHTML = ` ${humid}%`;
@@ -175,10 +152,10 @@ function setValues() {
             cards.children[i-1].children[1].children[0].src = sunny;
             document.querySelector('.jumboImg').src = sunny;
         }
-        // cards.children[i+1].children[1].children[1].children[0].innerHTML = 
+        
     }
-
-   
+    localStorage.setItem("City", JSON.stringify(searchResults));
+    init();
 
 }
 

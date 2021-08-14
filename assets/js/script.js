@@ -15,12 +15,29 @@ let sunny = "assets/img/day_clear.png";
 let cloudy = "assets/img/cloudy.png";
 let rain = "assets/img/rain.png";
 let today = moment();
+let searchResults;
+let invalidS = document.querySelector('.invalidSearch');
+let visi = invalidS.getAttribute("data-visibility");
 
+initDays();
 init();
 
 
-function init(){
-    let t = moment().format('MMMM Do YYYY');
+function init (){
+    // if (localStorage.getItem("toDo") != null) {
+    //     storageArray= JSON.parse(localStorage.getItem("toDo"));
+        
+    // }
+  
+    //     for (i = 0; i < 9; i++) {
+    //         let s = JSON.parse(localStorage.getItem("searchResults"));
+    //         let theMessage = storageArray[i].message;
+    //         container.children[i].children[1].value = theMessage;
+    //     }
+
+}
+function initDays(){
+    let t = today.format('MMMM Do YYYY');
     document.querySelector('.currentDay').innerHTML = t;
     let d1 = today.add(1, "days").format('MMMM Do YYYY');
     let d2 = today.add(1, "days").format('MMMM Do YYYY');
@@ -73,6 +90,7 @@ let formSubmitHandler = function (event) {
     fetch(queryUrl)
         .then(function (response) {
             if (response.ok) {
+               
                 response.json().then(weatherData => {
                     let lat = weatherData.city.coord.lat;
                     let lon = weatherData.city.coord.lon;
@@ -85,41 +103,36 @@ let formSubmitHandler = function (event) {
                                 weatherData.json()
                                 .then(weatherData => {
                                    weatherArray = weatherData;
+                                   console.log(visi);
+                                   if (visi === "hidden"){
+                                     invalidS.setAttribute("data-visibility" , "hidden");
+                                     invalidS.style.visibility = "hidden";
+                                                                    }         
                                    setValues();
             }   
                     )    }
-                        })   
-             }
+                })   
+                    }else{
+                        console.log("I fired");
+                        
+                        if (visi === "hidden"){
+                            invalidS.setAttribute("data-visibility" , "visible");
+                            invalidS.style.visibility = "visible";
+                        }
+                        
+                    }
                 })
-         
-        
+                
    
 
        
-/*weatherArray.city.name
-let precip = weatherArray.list[0].weather[0].main;
-let date = weatherArray.list[i].dt_text.format(mm/dd/yyyy);
-let temperature = weatherArray.list[0].main.temp
-(( temp - 273.15) * 9/5) + 32
-*/
 
-// let invalidSearch = document.querySelector('.invalidSearch');
-//     if ((response.status === 404) && invalidSearch.getAttribute(visibility, "hidden")){
-    //         let z = invalidSearch.setAttribute(visibility, "visible");
-
-    //     }
-
-    // .then(if (response.status === 404){
-
-        //   })
-        // Use a conditional to check the response status.
-        // If that status equals the conditional, then redirect to the 404 page.
         
     }
 
 function setValues() {
     cityName.innerHTML = cINput;
-    for (let i = 1; i < 7; i++) {
+    for (let i = 1; i < 6; i++) {
         let humid = weatherArray.daily[i].humidity;
         let wind = weatherArray.daily[i].wind_speed;
         let precip = weatherArray.daily[i].weather[0].main;

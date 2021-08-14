@@ -11,7 +11,9 @@ let uVIHTML = document.querySelector('#uVI');
 let lat;
 let long;
 let cards = document.querySelector('.cards');
-
+let sunny = "assets/img/day_clear.png";
+let cloudy = "assets/img/cloudy.png";
+let rain = "assets/img/rain.png";
 
 /* dt_txt: "2021-08-13 21:00:00"
 main: {temp: 308.49, feels_like: 312.71, temp_min: 308.49, temp_max: 309.1, pressure: 1016, …}
@@ -120,6 +122,14 @@ function setValues() {
         cards.children[i-1].children[1].children[1].children[0].innerHTML = ` ${temperature}  &#8457`;
         cards.children[i-1].children[1].children[2].children[0].innerHTML = ` ${wind} MPH`;
         cards.children[i-1].children[1].children[3].children[0].innerHTML = ` ${humid} %`;
+        if (precip == "Rain"){
+            cards.children[i-1].children[1].children[0].src = rain;    
+        } else if (precip == "Clouds"){
+            cards.children[i-1].children[1].children[0].src = cloudy;
+        } else {
+            cards.children[i-1].children[1].children[0].src = sunny;
+        }
+        console.log(precip);
         // cards.children[i+1].children[1].children[1].children[0].innerHTML = 
     }
 

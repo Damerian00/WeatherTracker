@@ -3,3 +3,7 @@
     
 }
 .invalidSearch{    font-size: .7rem;color: rgb(255, 1, 1); visibility:hidden;}
+.card-img-top{
+    width: 40%; margin: 1rem 1rem 1rem 3rem;
+}
+.temp, .wind, .humid, #temp, #wind, #humid, #uVI {margin: 1rem;}

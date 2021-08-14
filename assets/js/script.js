@@ -14,7 +14,26 @@ let cards = document.querySelector('.cards');
 let sunny = "assets/img/day_clear.png";
 let cloudy = "assets/img/cloudy.png";
 let rain = "assets/img/rain.png";
+let today = moment();
 
+init();
+
+
+function init(){
+    let t = moment().format('MMMM Do YYYY');
+    document.querySelector('.currentDay').innerHTML = t;
+    let d1 = today.add(1, "days").format('MMMM Do YYYY');
+    let d2 = today.add(1, "days").format('MMMM Do YYYY');
+    let d3 = today.add(1, "days").format('MMMM Do YYYY');
+    let d4 = today.add(1, "days").format('MMMM Do YYYY');
+    let d5 = today.add(1, "days").format('MMMM Do YYYY');
+    cards.children[0].children[0].innerHTML = d1;
+    cards.children[1].children[0].innerHTML = d2;
+    cards.children[2].children[0].innerHTML = d3;
+    cards.children[3].children[0].innerHTML = d4;
+    cards.children[4].children[0].innerHTML = d5;
+
+}
 /* dt_txt: "2021-08-13 21:00:00"
 main: {temp: 308.49, feels_like: 312.71, temp_min: 308.49, temp_max: 309.1, pressure: 1016, …}
 main:
@@ -28,9 +47,12 @@ main:
     temp_max: 309.1
     temp_min: 308.49
 wind: {speed: 2.59, deg: 175, gust: 3.1}
-
-
+var today = moment();
+$("#1a").text(today.format("MMM Do, YYYY"));
+var gradDate =today.format("MMM Do, YYYY");
+$("#1a").text(gradDate);
 */
+
 
 let formSubmitHandler = function (event) {
     event.preventDefault();
@@ -97,7 +119,6 @@ let temperature = weatherArray.list[0].main.temp
 
 function setValues() {
     cityName.innerHTML = cINput;
-    console.log(weatherArray)
     for (let i = 1; i < 7; i++) {
         let humid = weatherArray.daily[i].humidity;
         let wind = weatherArray.daily[i].wind_speed;
@@ -107,9 +128,9 @@ function setValues() {
         let w = weatherArray.daily[0].wind_speed;
         let t = weatherArray.daily[0].temp.day;
         let u = weatherArray.daily[0].uvi;
-        tempHTML.innerHTML = t;
-        windHTML.innerHTML = w;
-        humidHTML.innerHTML = h;
+        tempHTML.innerHTML = ` ${t} &#8457`;t;
+        windHTML.innerHTML =` ${w} MPH`; w;
+        humidHTML.innerHTML =` ${h} %`;
         uVIHTML.innerHTML = u;
         if (u <= 2){
             uVIHTML.style.backgroundColor = "green";
@@ -128,19 +149,23 @@ function setValues() {
         //  console.log(precip);
         //  console.log("Temp: " + temperature);
         // cards.children[i].children[0].innerHTML = datey;
-        cards.children[i-1].children[1].children[1].children[0].innerHTML = ` ${temperature}  &#8457`;
-        cards.children[i-1].children[1].children[2].children[0].innerHTML = ` ${wind} MPH`;
-        cards.children[i-1].children[1].children[3].children[0].innerHTML = ` ${humid} %`;
+        cards.children[i-1].children[1].children[1].children[0].innerHTML = ` ${temperature}&#8457`;
+        cards.children[i-1].children[1].children[2].children[0].innerHTML = ` ${wind}MPH`;
+        cards.children[i-1].children[1].children[3].children[0].innerHTML = ` ${humid}%`;
         if (precip == "Rain"){
             cards.children[i-1].children[1].children[0].src = rain;    
+            document.querySelector('.jumboImg').src = rain;
         } else if (precip == "Clouds"){
             cards.children[i-1].children[1].children[0].src = cloudy;
+            document.querySelector('.jumboImg').src = cloudy;
         } else {
             cards.children[i-1].children[1].children[0].src = sunny;
+            document.querySelector('.jumboImg').src = sunny;
         }
-        console.log(precip);
         // cards.children[i+1].children[1].children[1].children[0].innerHTML = 
     }
+
+   
 
 }
 

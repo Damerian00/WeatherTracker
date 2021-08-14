@@ -6,4 +6,26 @@
 .card-img-top{
     width: 40%; margin: 1rem 1rem 1rem 3rem;
 }
-.temp, .wind, .humid, #temp, #wind, #humid, #uVI {margin: 1rem;}
+.temp, .wind, .humid, #temp, #wind, #humid, #uVI {margin: .5rem;}
+.jumboImg{      width:320px;
+    position: absolute;
+    right: 6rem; top: 0;  
+    }
+.card-body{padding: .5rem;}
+@media screen and (max-width:992px){
+.card-img-top{margin: 1rem 1rem 1rem 9rem;}
+    .card-title{font-size: 2rem;}
+
+
+    .jumboImg{     
+        width: 222px;    position: absolute;
+        right: 2rem;
+        top: 4rem;}
+}
+@media screen and (min-width:992px) and (max-width:1068px){    
+.card{    padding: 0;}
+    .card p{font-size: .75rem;}
+    .card-img-top{margin: 1rem 1rem 1rem 2rem;}
+    .card-title{font-size: 1.25rem;}
+
+} 

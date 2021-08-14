@@ -41,7 +41,7 @@ function init (){
              JSON.parse(localStorage.getItem("searchResults"));
              let theResult = searchResults[i];
                let p = document.createElement("p");
-               p.classList = "p-2 bg-secondary text-light text-center";
+               p.classList = "query p-2 bg-secondary text-light text-center";
                p.innerHTML = theResult;
                rQ.appendChild(p);
              
@@ -155,8 +155,14 @@ function setValues() {
         
     }
     localStorage.setItem("City", JSON.stringify(searchResults));
-    init();
+    // init();
 
 }
 
 wChecker.addEventListener('submit', formSubmitHandler);
+document.querySelectorAll('.query').forEach(item => {
+    item.addEventListener('click', event => {
+        let theText = event.target;
+        document.querySelector('#criteria').value = theText.innerHTML;
+      })
+});

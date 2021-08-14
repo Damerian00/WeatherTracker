@@ -111,6 +111,15 @@ function setValues() {
         windHTML.innerHTML = w;
         humidHTML.innerHTML = h;
         uVIHTML.innerHTML = u;
+        if (u <= 2){
+            uVIHTML.style.backgroundColor = "green";
+        } else if (u >= 3 && u <= 5){
+            uVIHTML.style.backgroundColor = "yellow";
+        }else if (u >= 6 && u <= 7){
+            uVIHTML.style.backgroundColor = "Orange";
+        } else{
+            uVIHTML.style.backgroundColor = "red";
+        }
         //  console.log("Humidity: " + humid);
         //  console.log(wind);
         //  console.log(speed);

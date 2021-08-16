@@ -108,15 +108,19 @@ let formSubmitHandler = function (event) {
                     }
                 })
                 
+               
    
-
-       
 
         
     }
 
 function setValues() {
     cityName.innerHTML = cINput;
+    let newPi = cityName.innerHTML;
+    let p = document.createElement("p");
+    p.classList = "query p-2 bg-secondary text-light text-center";
+    p.innerHTML = newPi;
+    rQ.appendChild(p);
     for (let i = 1; i < 6; i++) {
         let humid = weatherArray.daily[i].humidity;
         let wind = weatherArray.daily[i].wind_speed;

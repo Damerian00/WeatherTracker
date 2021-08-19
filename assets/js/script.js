@@ -27,16 +27,7 @@ initDays();
 function init (){
     if (localStorage.getItem("City") != null) {
          searchResults = JSON.parse(localStorage.getItem("City"));
-        
-     
-        // // if (rQ.children[].length != null){
-        // //     for (let i = 0; i < rQ.children().length; i++) {
-        // //         rQ.children[0].remove();
-                
-        // //     }
-
-        // }
-
+ 
          for (i = 0; i < searchResults.length && i < 8; i++) {
              JSON.parse(localStorage.getItem("searchResults"));
              let theResult = searchResults[i];
@@ -72,7 +63,26 @@ let formSubmitHandler = function (event) {
     let qCity = document.querySelector('#criteria');
     qCity = qCity.value;
     cINput = qCity;
-    searchResults.push(cINput);
+    console.log("Before: " + searchResults);
+    if (searchResults.includes(cINput) == true){
+        
+    }else{
+        searchResults.push(cINput);
+        let newPi = cINput;
+        let p = document.createElement("p");
+        p.classList = "query p-2 bg-secondary text-light text-center";
+        p.innerHTML = newPi;
+        rQ.appendChild(p);
+        document.querySelectorAll('.query').forEach(item => {
+            item.addEventListener('click', event => {
+                let theText = event.target;
+                document.querySelector('#criteria').value = theText.innerHTML;
+                formSubmitHandler(event);
+              })
+        });
+
+    }
+    console.log("after: " + searchResults);
     queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${qCity}&appid=${apiKey}&units=imperial`;
       fetch(queryUrl)
         .then(function (response) {
@@ -116,11 +126,7 @@ let formSubmitHandler = function (event) {
 
 function setValues() {
     cityName.innerHTML = cINput;
-    let newPi = cityName.innerHTML;
-    let p = document.createElement("p");
-    p.classList = "query p-2 bg-secondary text-light text-center";
-    p.innerHTML = newPi;
-    rQ.appendChild(p);
+ 
     for (let i = 1; i < 6; i++) {
         let humid = weatherArray.daily[i].humidity;
         let wind = weatherArray.daily[i].wind_speed;
@@ -159,7 +165,6 @@ function setValues() {
         
     }
     localStorage.setItem("City", JSON.stringify(searchResults));
-    // init();
 
 }
 
@@ -168,5 +173,6 @@ document.querySelectorAll('.query').forEach(item => {
     item.addEventListener('click', event => {
         let theText = event.target;
         document.querySelector('#criteria').value = theText.innerHTML;
+        formSubmitHandler(event);
       })
 });

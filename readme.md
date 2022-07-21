@@ -38,7 +38,7 @@
     <a href="https://github.com/Damerian00/hw06WeatherTracker"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://damerian00.github.io/hw06WeatherTracker/">View Demo</a>
+    <a href="https://damerian00.github.io/WeatherTracker/">View Demo</a>
     
 </p>
 
